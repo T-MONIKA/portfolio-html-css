@@ -3,116 +3,316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile | Monika T</title>
+  <title>Monika T | Portfolio</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #e6f0ff, #d6e0f5);
+      background: linear-gradient(to right, #e6f0ff, #d6e0f5);
       color: #333;
-      padding: 40px;
+      line-height: 1.6;
     }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    body.dark-mode {
+      background-color: #121212;
+      color: #f5f5f5;
     }
 
-    h1 {
+    header {
+      background-color: royalblue;
+      color: white;
+      padding: 40px 20px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: background 0.3s;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode section {
+      background: #1e1e1e;
+    }
+
+    h2 {
       color: royalblue;
-      margin-bottom: 30px;
+      border-bottom: 2px solid royalblue;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .project {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f0f8ff;
+      border-left: 5px solid royalblue;
+      border-radius: 8px;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #222;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      margin-top: 5px;
+      font-size: 0.9em;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: royalblue;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .resume-btn:hover {
+      background: #003cb3;
     }
 
     .profile-img {
       display: block;
       margin: 0 auto 20px;
-      border-radius: 50%;
       width: 130px;
       height: 130px;
+      border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
-    .info label {
-      font-weight: bold;
-      color: #003cb3;
-      display: block;
-      margin-top: 15px;
-    }
-
-    .info p {
-      margin: 5px 0 15px;
-      font-size: 1.05em;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 30px;
-      text-decoration: none;
-      background: royalblue;
+    footer {
+      background-color: #1a1a1a;
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
+    .container {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    a.button:hover {
-      background: #003cb3;
-    }
+body.dark-mode .container {
+  background: #2a2a2a;
+}
 
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: royalblue;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+
+.btn {
+  background-color: royalblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #003cb3;
+}
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>My Profile</h1>
-    <img src="image copy.jpg" alt="Profile Picture" class="profile-img" />
+  <header>
+    <h1>Monika T</h1>
+    <p>UI/UX Designer | Web Developer | CSD Student</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
 
-    <div class="info">
-      <label>Full Name:</label>
-      <p>Monika T</p>
-
-      <label>Email:</label>
-      <p>tmonikat2810@gmail.com</p>
-
-      <label>Phone Number:</label>
-      <p>+91 7305209655</p>
-
-      <label>Address:</label>
-      <p>1/235, Kangayam, Tiruppur, Tamil Nadu, India</p>
-
-      <label>College:</label>
-      <p>Kongu Engineering College</p>
-
-      <label>Department:</label>
-      <p>Computer Science and Design (CSD)</p>
-
-      <label>Role:</label>
-      <p>Student | Web Developer | UI/UX Designer</p>
-
-      <label>Extra curricular activities:</label>
-      <p> <ul>
-        <li>Event Coordinator at College Tech Fest</li>
-        <li>Active member of Women in Tech Club</li>
-        <li>Volunteered in Blood Donation & Social Awareness Camps</li>
-        <li>Participated in State-Level Coding and UI/UX Hackathons</li>
-        </ul></p>
-
-        <label>Hobbies:</label>
-        <p><ul>
-        <li>Graphic Designing and Poster Making</li>
-        <li>Public Speaking & Anchoring</li>
-        <li>Exploring UI trends on Dribbble & Behance</li>
-        <li>Watching Tech YouTube Channels and Tutorials</li>
-        </ul></p>
-    </div>
-
-    <a href="portfolio.html" class="button"> Back to Portfolio</a>
+  <div class="theme-toggle">
+    <label for="themeSwitch">🌙 Dark Mode</label>
+    <input type="checkbox" id="themeSwitch" onclick="document.body.classList.toggle('dark-mode')" />
   </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="image.jpg" alt="Profile Picture" class="profile-img">
+    <p>Hello! I’m <strong>Monika T</strong>, a passionate Computer Science and Design student at Kongu Engineering College. I’m actively learning full-stack development with a focus on creativity, clean design, and seamless user experiences. I enjoy blending UI/UX principles with frontend technologies to bring ideas to life.</p>
+    <a href="resume1 (1).pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ol>
+      <li class="tooltip" data-tooltip="I design and structure webpages using HTML.">HTML5</li><br>
+      <li class="tooltip" data-tooltip="Used for styling websites and creating responsive layouts.">CSS3</li><br>
+      <li class="tooltip" data-tooltip="Learned to manipulate the DOM and add interactivity.">JavaScript</li><br>
+      <li class="tooltip" data-tooltip="I design UI/UX in Figma for intuitive user experiences.">UI/UX Design</li><br>
+      <li class="tooltip" data-tooltip="Mobile-friendly design for various screen sizes.">Responsive Design</li><br>
+      <li class="tooltip" data-tooltip="Version control and project hosting.">Git & GitHub</li><br>
+      <li class="tooltip" data-tooltip="Currently learning backend development with MongoDB, Express, React, and Node.">MERN Stack</li><br>
+    </ol>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Registration Form (JS + CSS)</h3>
+      <p>A creative, fully styled registration form using HTML, CSS, and JavaScript DOM manipulation — built to showcase form validation and interactive design.</p>
+    </div>
+    <div class="project">
+      <h3>Rock Paper Scissors Game</h3>
+      <p>Developed using Flask and MongoDB to store user scores. Includes glowing effects, multiple pages, and a stylish interface with animations.</p>
+    </div>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>This very site! Designed in royal blue theme with CSS animations, scroll effects, and responsive sections to showcase my profile and projects.</p>
+    </div>
+    <div class="project">
+      <h3>Fire Fighting Robot</h3>
+      <p>A hardware-based robot designed to detect and extinguish fire automatically. Uses flame sensors, motors, and water spray mechanism. Built as part of an embedded systems project.<br>
+      <a href="https://youtu.be/ZfdxlZ1cUy0?si=L2fIPE2smCyKLJ5n" target="_blank">▶️ Watch Demo</a></p>
+    </div>
+    <div class="project">
+      <h3>Internship Finder App</h3>
+      <p>A web app designed to help students find internships based on interests and skills. Built using HTML, CSS, JavaScript, and includes a searchable database of available internships.</p>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <ul>
+      <li>UI/UX Algorithm Sorting And Searching – Springboard</li>
+      <img src="cert1.png" alt="Certificate 1" style="width: 200px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <li>Web Design and implementation of human computer interface– NPTEL</li>
+      <img src="cert2.png" alt="Certificate 2" style="width: 200px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <li>Oracleusing APEX Assistant – ORECLE</li>
+      <img src="cert3.png" alt="Certificate 3" style="width: 200px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <li>Design Thinking – Guvi</li>
+      <img src="cert4.png" alt="Certificate 4" style="width: 200px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </ul>
+     <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 15px;">
+    
+    
+  </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: monikat.23csd@kongu.edu</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/monika-thangaraj-908418309/" target="_blank">linkedin.com/in/monika</a></p>
+    <p>GitHub: <a href="https://github.com/T-MONIKA" target="_blank">github.com/monikat</a></p>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Monika T. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
